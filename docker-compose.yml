@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb:10.5.8
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Aneeq
+      MYSQL_DATABASE: wp
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Aneeq
+
+  wordpress:
+    image: wordpress:latest
+    volumes: ["./html:/var/www/html"]
+    depends_on:
+      - db
+    ports:
+      - "8000:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: Aneeq
+      WORDPRESS_DB_NAME: wp
+volumes:
+    db_data:
+
+
+
+
+
