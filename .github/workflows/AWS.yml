@@ -24,3 +24,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Create .env
         run: echo 'Port=${{ secrets.PORT }}' > .env
+        
+      - name: Run build
+        run: docker-compose up -d 
