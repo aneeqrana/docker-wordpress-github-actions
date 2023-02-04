@@ -5,7 +5,7 @@ services:
     image: mariadb:10.5.8
     volumes:
       - db_data:/var/lib/mysql
-    restart: always
+    #restart: always
     environment:
       MYSQL_ROOT_PASSWORD: Aneeq
       MYSQL_DATABASE: wp
@@ -24,8 +24,6 @@ services:
       WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: Aneeq
       WORDPRESS_DB_NAME: wp
-volumes:
-    db_data:
 
   webserver:
     image: nginx:latest
@@ -37,6 +35,8 @@ volumes:
     links:
       - wordpress:wordpress
 
+volumes:
+    db_data:
 
 
 
