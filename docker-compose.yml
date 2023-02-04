@@ -35,8 +35,8 @@ services:
     links:
       - wordpress:wordpress
 
-volumes:
-    db_data:
+#volumes:
+ #   db_data:
 
 
 
