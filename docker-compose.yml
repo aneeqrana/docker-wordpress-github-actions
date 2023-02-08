@@ -5,7 +5,7 @@ services:
     image: mariadb:10.5.8
     volumes:
       - db_data:/var/lib/mysql
-    #restart: always
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: Aneeq
       MYSQL_DATABASE: wp
@@ -14,7 +14,8 @@ services:
 
   wordpress:
     image: wordpress:latest
-    volumes: ["./html:/var/www/html"]
+   # volumes: ["./html:/var/www/html"]
+    volumes: [".:/var/www/html"]
     depends_on:
       - db
     ports:
